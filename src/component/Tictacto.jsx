@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../index.css";
 
-const Tictacto = () => {
+const Tictacto = ({onClose}) => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState(true);
   const winner = calculateWinner(board);
@@ -24,7 +24,7 @@ const Tictacto = () => {
   return (
     <>
       <main className="main">
-        <h1 className="heading">Tic Tac Toe</h1>
+        <h1 className="heading">Tic Tac Toe</h1> 
         <div className="container">
           <div className="game">
             {board.map((value, index) => (
@@ -51,6 +51,10 @@ const Tictacto = () => {
         <button className="reset" onClick={handelReset}>
           Reset
         </button>
+        <br/>
+        <button className="reset" onClick={onClose}>
+            Go Back
+          </button>
       </main>
     </>
   );
